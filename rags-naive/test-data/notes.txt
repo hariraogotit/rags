@@ -1,0 +1,2 @@
+Chunking is usually done with TokenTextSplitter to respect token limits rather than character counts.
+Overlap of 50 tokens preserves cross-boundary context for sentences split across chunks.

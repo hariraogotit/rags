@@ -1,4 +1,4 @@
-package com.example.naiverag
+package com.example.ragcommon
 
 import org.springframework.ai.chat.client.ChatClient
 import org.springframework.ai.chat.model.ChatModel

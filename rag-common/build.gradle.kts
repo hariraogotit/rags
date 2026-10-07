@@ -23,3 +23,4 @@ dependencyManagement {
         mavenBom("org.springframework.ai:spring-ai-bom:${property("springAiVersion")}")
     }
 }
+tasks.bootJar { enabled = false }

@@ -30,14 +30,15 @@ class HybridRetrieval(private val vectorStore: VectorStore) {
     }
 
     fun retrieve(query: String): List<String> {
-        // Dense
+        // Dense (similarity search)
         val denseReq = SearchRequest.builder().query(query).topK(5).similarityThreshold(0.7).build()
         val denseIds = vectorStore.similaritySearch(denseReq).map { it.id ?: it.text ?: "" }
-        // Lexical
+        // Lexical (keyword search)
         val parser = QueryParser("content", analyzer)
         val q = parser.parse(query)
         val reader = org.apache.lucene.index.DirectoryReader.open(dir)
         val searcher = IndexSearcher(reader)
+        // Search top 10 keyword matches and get their chunk IDs
         val hits = searcher.search(q, 10).scoreDocs.map { searcher.doc(it.doc).get("chunkId") }.filterNotNull()
         // RRF: reciprocal rank fusion (k=60)
         val rrf = mutableMapOf<String, Double>()

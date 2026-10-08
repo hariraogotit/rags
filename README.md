@@ -4,7 +4,7 @@ This is a multimodule Gradle project. Each module is an independent RAG pattern 
 
 ## Modules
 
-- `rag-common/` — shared chunking, config, prompts, guards, eval harness. Has its own README.
+- `rag-common/` — shared chunking, config, prompts, guards, eval harness. 
 - `rag-naive/` — naive dense retrieval (Chroma + OpenRouter). Has its own README.
 - `rag-hybrid/` — hybrid BM25 (Lucene) + dense retrieval with RRF. Has its own README.
 

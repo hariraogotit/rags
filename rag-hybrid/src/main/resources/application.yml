@@ -9,3 +9,11 @@ spring:
       embedding:
         options:
           model: nvidia/nemotron-3-embed-1b:free
+    vectorstore:
+      chroma:
+        tenant-name: default_tenant
+        database-name: default_database
+        collection-name: rag-naive
+        initialize-schema: true
+        client:
+          base-url: http://localhost:8000
